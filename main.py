@@ -33,17 +33,21 @@ def exibir():
     print()
 #Adicionando grafico Visual da blibioteca matplotlib (mas utilizei somente o py plot, ficou: "matplotlib.pyplot")
 def graficos():
-    grafico.ylabel("cotação ") #adiciona texto ao eixo Y
-    grafico.xlabel("Tempo",color="green") #adiciona texto ao eixo X
+    grafico.ylabel("Valor em Reais (R$) ", color='green') #adiciona texto ao eixo Y
+    grafico.xlabel("Tempo",color="blue") #adiciona texto ao eixo X
     grafico.axis(ymin=0, ymax=10) #adiciona limite de valores nos eixos (ex: ymin/ ymax), é possivel adicionar colocação as linhas
-    grafico.plot(tempo, valorDolar,label='Dolar',marker='o') #adicionei a linha do grafico referente a Dolar (label = texto da legenda/ e marker = marcação dos valores da linha)
-    grafico.plot(tempo, valorEuro, label='Euro', marker='o') #adicionei a linha do grafico refente a Euro
+    # .plot() = Cria um Gráfico de linhas
+    # .bar() =  Cria um Gráfico de barras
+    grafico.plot(tempo, valorDolar,label='Dolar',marker='s') #adicionei a linha do grafico referente a Dolar (label = texto da legenda/ e marker = marcação dos valores da linha)
+    grafico.plot(tempo, valorEuro, label='Euro', marker='s') #adicionei a linha do grafico refente a Euro
+    grafico.grid(True) #Adiciona a tabelação
+    grafico.title('Cotação em Reais') # Adiciona o Titulo do Grafico
     grafico.legend() #adiciona aa labels dos grafico.plot como legendas
 
     grafico.show() #Exibe o gráfico
 
 if request.status_code == 200:
-    print('\n',data_format,'\n {:.2f}'.format(dolar),'\n {:.2f}'.format(euro))
+    print('\nValores da cotação de hoje: ',data_format,'\nDolar: {:.2f}'.format(dolar),'\nEuro: {:.2f}'.format(euro))
     print('')
     #inserir()
     exibir()
