@@ -18,7 +18,6 @@ valorDolar = []
 valorEuro = []
 
 def create():
-
     try:
         command.execute("""
             CREATE TABLE moedas(
@@ -46,7 +45,7 @@ def exibir():
         valorDolar.append(linha[1])
         valorEuro.append(linha[2])
         print(linha)
-        #connect.close()
+        connect.close()
 
     print()
 #Adicionando grafico Visual da blibioteca matplotlib (mas utilizei somente o py plot, ficou: "matplotlib.pyplot")
